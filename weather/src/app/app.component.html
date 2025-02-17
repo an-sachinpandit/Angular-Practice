@@ -1,0 +1,47 @@
+<div class="container my-5">
+  <h1 class="text-center fw-bold text-light mb-5">Weather Forecast App</h1>
+
+  <div class="d-flex justify-content-end align-items-center mb-4">
+    <input [(ngModel)]="city" type="text" class="form-control w-25 me-2" placeholder="Search city" />
+    <button (click)="onSearch()" class="btn btn-gradient">Search</button>
+  </div>
+
+  <div *ngIf="alertMessage" class="alert alert-danger text-center" role="alert">
+    {{ alertMessage }}
+  </div>
+
+  <div *ngIf="weatherData" class="p-4 rounded shadow-sm mb-5 bg-gradient-light">
+    <div class="d-flex align-items-center">
+      <img
+        [src]="'https://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@4x.png'"
+        alt="Weather Icon"
+        class="me-4"
+        style="width: 200px; height: 200px"
+      />
+      <div>
+        <h2 class="text-light fw-bold mb-2">{{ weatherData.name }}</h2>
+        <p class="h4 text-primary mb-2">{{ weatherData.main.temp }}°</p>
+        <p class="text-muted mb-1">{{ weatherData.weather[0].description }}</p>
+        <p class="text-muted mb-1">Humidity: {{ weatherData.main.humidity }}%</p>
+        <p class="text-muted mb-0">Wind: {{ weatherData.wind.speed }} m/s</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 *ngIf="forecastData.length" class="text-light fw-bold mb-4">5-Day Forecast</h2>
+  <div class="row g-4">
+    <div *ngFor="let day of forecastData" class="col">
+      <div class="card">
+        <h5>
+          {{ day.dt_txt | date: 'yyyy, mm, dd' }}
+        </h5>
+        <img
+          [src]="'https://openweathermap.org/img/wn/' + day.weather[0].icon + '.png'"
+          alt="Weather Icon"
+        />
+        <p class="fw-bold">{{ day.main.temp }}<sup>°C</sup></p>
+        <p>{{ day.weather[0].description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

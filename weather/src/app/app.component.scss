@@ -1,0 +1,136 @@
+/* Updated CSS for a polished weather app look */
+
+/* Body Styling */
+body {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container Styling */
+.container {
+  margin: 50px auto;
+  max-width: 900px;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Title Styling */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Search Bar Styling */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  width: 70%;
+  margin-right: 10px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #ff7f50;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-bar button:hover {
+  background: #ff5722;
+}
+
+/* Current Weather Section */
+.current-weather {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 30px;
+}
+
+.current-weather img {
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+}
+
+.current-weather .details {
+  font-size: 1.2rem;
+}
+
+.current-weather .details h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.current-weather .details p {
+  margin: 5px 0;
+}
+
+/* Forecast Section */
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.forecast .card {
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.forecast .card:hover {
+  transform: scale(1.05);
+}
+
+.forecast .card h5 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.forecast .card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.forecast .card p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+/* Alert Styling */
+.alert {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: none;
+  color: white;
+  background: rgba(255, 0, 0, 0.8);
+}
