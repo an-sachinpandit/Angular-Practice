@@ -47,6 +47,7 @@
           headers: this.authService.getAuthHeaders()
         }).subscribe((response)=> {
           console.log(response);
+          alert("book added successfully");
         });
     }
 

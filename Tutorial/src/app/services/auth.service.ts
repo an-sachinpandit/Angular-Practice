@@ -32,7 +32,7 @@ export class AuthService {
 
   getAuthHeaders() : HttpHeaders{
     return new HttpHeaders({
-      Authorization : `${this.getToken()}`,
+      Authorization : `Bearer ${this.getToken()}`,
       'Content-Type' : 'application/json'
     });
   }

@@ -1,1 +1,24 @@
-<p>login works!</p>
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+      <h2 class="text-center">Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" formControlName="email">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="password">
+        </div>
+        <button type="submit" class="btn btn-success w-100" [disabled]="loginForm.invalid">Login</button>
+        <div>
+            New User? 
+            <a [routerLink]="['/registration-page']" routerLinkActive="router-link-active" >
+                Register Here!
+            </a>
+        </div>
+      </form>
+      <p class="text-success mt-2">{{ message }}</p>
+    </div>
+  </div>
+  

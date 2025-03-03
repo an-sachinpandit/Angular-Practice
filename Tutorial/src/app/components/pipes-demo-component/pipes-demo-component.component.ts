@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
-import { RemoveSpacePipe } from '../../pipes/remove-space.pipe';
+import { Component , inject} from '@angular/core';
+import { Router } from '@angular/router';
+import { RemoveSpacePipe } from '../../sharedModules/pipes/remove-space.pipe';
 import { FormsModule} from '@angular/forms';
-import { WordCountPipe } from '../../pipes/word-count.pipe';
-import { EllipsisPipe } from '../../pipes/ellipsis.pipe';
-import { LimitedCharPipe } from '../../pipes/limited-char.pipe';
-import { PluralizePipe } from '../../pipes/pluralize.pipe';
-import { CasePipe } from '../../pipes/case.pipe';
-import { NumberMaskingPipe } from '../../pipes/number-masking.pipe';
+import { WordCountPipe } from '../../sharedModules/pipes/word-count.pipe';
+import { EllipsisPipe } from '../../sharedModules/pipes/ellipsis.pipe';
+import { LimitedCharPipe } from '../../sharedModules/pipes/limited-char.pipe';
+import { PluralizePipe } from '../../sharedModules/pipes/pluralize.pipe';
+import { CasePipe } from '../../sharedModules/pipes/case.pipe';
+import { NumberMaskingPipe } from '../../sharedModules/pipes/number-masking.pipe';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-pipes-demo-component',
   imports: [RemoveSpacePipe, FormsModule, WordCountPipe, EllipsisPipe, LimitedCharPipe, PluralizePipe, CasePipe, NumberMaskingPipe
@@ -16,6 +18,9 @@ import { NumberMaskingPipe } from '../../pipes/number-masking.pipe';
   styleUrl: './pipes-demo-component.component.scss'
 })
 export class PipesDemoComponentComponent {
+
+  authService = inject(AuthService);
+  router = inject(Router);
    userInput: string = "";
    
    WordCounter: string ="";
@@ -32,4 +37,9 @@ export class PipesDemoComponentComponent {
    protected name : string = "";
 
    protected masking : string = "";
+
+   logout(){
+    this.authService.logout();
+    this.router.navigate(['/login-page']);
+   }
 }

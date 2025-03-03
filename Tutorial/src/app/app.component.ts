@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { PipesDemoComponentComponent } from './components/pipes-demo-component/pipes-demo-component.component';
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [ PipesDemoComponentComponent ],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
