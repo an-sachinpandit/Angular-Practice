@@ -1,0 +1,17 @@
+<h1>Working With Directives</h1>
+<h3>***************Behavioral Directive****************</h3>
+<p>--------TextColor Directive--------------</p>
+<pre>Here, the text Color will change as per the user input</pre>
+<p [appTextColor]="userInputColor">This text will be change as per user Input </p>
+<input type="text" [(ngModel)] = "userInputColor" placeholder="Please enter the color(e.g red, green)"/>
+
+<p>-----------Disable Butto  Directive -------------------</p>
+<input [(ngModel)]="userInputNumber" placeholder="Enter the number between 1 to 10"/>
+<button [appDisableButton] = "userInputNumber" >Click me</button>
+
+<h3>-------------Structural Directive--------------</h3>
+<p>-------------Show - Hide Directive----------- </p>
+<button (click) = "isVisible = !isVisible">Click me </button>
+<p *appShowHide="isVisible">Hello from show hide directive</p>
+
+<button appOddEvenCounter>Click me </button>

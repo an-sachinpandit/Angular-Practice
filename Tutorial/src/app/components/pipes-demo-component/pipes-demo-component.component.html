@@ -1,0 +1,46 @@
+<h1 style="align-items: center;">OPERATIONS ON PIPE </h1>
+
+<p> -----------Remove White Spaces------------</p>
+<input [(ngModel)]="userInput" placeholder="Enter the string input"/>
+<p> Original Input :{{ userInput}}</p>
+<p> Output:{{ userInput | removeSpace}}</p>
+
+<p>---------Word Count---------------</p>
+<input [(ngModel)]="WordCounter" placeholder="Enter the Input"/>
+<p> Origina Input: {{ WordCounter}}</p>
+<p> Output: {{WordCounter | wordCount}}</p>
+
+<p>--------------Ellipsis Pipe----------------</p>
+<ul>
+    @for(name of names; track name){
+        <li>{{name | ellipsis:5}}</li>
+    }
+</ul>
+
+<p>-----------------Displaying limited characters------------------</p>
+<input [(ngModel)]="limitedchar" placeholder="Please enter your full name here"/>
+<p>Original Input: {{limitedchar}}</p>
+<p>Limited To 20 characters: {{ limitedchar | limitedChar:20}}</p>
+<p> Limited to 5 characters: {{ limitedchar | limitedChar:5}}</p>
+
+
+<p>---------------Pluralized Pipe-----------------</p>
+<input [(ngModel)]="count" placeholder="Enter your count please"/>
+<p><b>Output:</b>{{count | pluralize : 'apple': 'apples'}}</p>
+
+<p>-------------------Switching Between the case i.e.Upper, Lower, title</p>
+<input [(ngModel)]="name" placeholder="Please enter you name"/>
+<p>Original Input : {{name}}</p>
+<p>Switch To upper case: {{name | case:'upper'}}</p>
+<p>Switch to lower case: {{name | case: 'lower'}}</p>
+<p>Switch to title case: {{name | case: 'title'}}</p>
+
+
+<p>---------Number Maskin Pipe------------</p>
+<input [(ngModel)]="masking" placeholder="Please enter your adhar number"/>
+<p> Original Input : {{masking}}</p>
+<p>After Masking (Defaault): {{masking | numberMasking}}</p>
+<p>After Masking (Defined): {{masking | numberMasking: '#':3}}</p>
+
+<button class="btn btn-danger" (click)="logout()">Logout</button>
+ 
