@@ -1,0 +1,70 @@
+<div class="container-md align-item-center">
+    <form class="row g-3 m-2 p-2 border shadow" [formGroup]="registrationForm">
+        <div class="col-md-4">
+            <label for="name" class = "form-label">Name</label>
+            <input type ="text"class="form-control" formControlName="name" placeholder="Please enter your name"/>
+            @if(registrationForm.controls['name'].invalid && registrationForm.controls['name'].touched){
+                @if(registrationForm.controls['name'].errors?.['required']) {
+                    <p class="text-danger">Please Enter name</p>
+                }
+                @else if(registrationForm.controls['name'].errors?.['maxlength'] ){
+                    <p class="text-danger">max length </p>
+                } @else if(registrationForm.controls['name'].errors?.['minlength']){
+                    <p class="text-danger">Name should be atleast of 2 characters</p>
+                }
+            }
+        </div>
+        <div class = "col-md-4">
+            <label for="age" class = "form-label" >Age</label>
+            <input type="number" class="form-control" formControlName="age" placeholder="Please enter your age"/>
+            @if(registrationForm.controls['age'].invalid && registrationForm.controls['age'].touched){
+                <p class="text-danger"> Age should be filled</p>
+            }
+        </div>
+        <div class="col-md-4">
+            <label for="favColor" class = "form-label">Color</label>
+            <input type="text" class="form-control" formControlName="color" placeholder="Please enter your fav color">
+            @if(registrationForm.controls['color'].invalid && registrationForm.controls['color'].touched){
+                <div class="text-danger">Please fill the color you loves</div>
+            }
+        </div>
+        <div class="col-md-4">
+            <label for="email" class = "form-label">Email</label>
+            <input type="email" class="form-control" formControlName="Email" placeholder="please enter your email" >
+            @if(registrationForm.controls['Email'].touched && registrationForm.controls['Email'].invalid) {
+                @if(registrationForm.controls['Email'].errors?.['required']) {
+                     <div class="text-danger">Please enter you email first!</div>
+            }@else if(registrationForm.controls['Email'].errors?.['email']){
+                <div class="text-danger">Please enter the valid email</div>
+            }
+
+        }
+        </div>
+        <div class="col-md-4">
+            <label for="phone" class = "form-label">Phone</label>
+            <input  type="tel" class = "form-control" formControlName="phone" placeholder="Please enter your name">
+            @if(registrationForm.controls['phone'].invalid && registrationForm.controls['phone'].touched){
+                <div class="text-danger">Please enter your contact first!</div>
+            }
+        </div>
+        <div class="col-md-4">
+            <label for="dob" class="form-label">DOB</label>
+            <input type="date" class="form-control" />
+        </div>
+        <div class="col">
+            <label for="intro" class=" form-label">Introduce Yourself</label>
+            <textarea type="" class="form-control" placeholder="Introduce yourself here!"></textarea>
+        </div>
+        <div class="row mt-4">
+        <div class="col">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <label>I agree to the terms and conditions!</label>
+            </div>
+        </div>            
+        </div>
+        <div class="col-1">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
